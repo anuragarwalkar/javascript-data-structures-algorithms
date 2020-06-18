@@ -30,15 +30,47 @@ class HashTable {
     }
     return null
     }
+
+    values () {
+        const valuesArray = [];
+
+        for (const iterator of this.keyMap) {
+            if(iterator.length === 0 || !iterator) continue;
+
+            for(const item of iterator){
+                const [_, lastIndex] = item;
+                if(!valuesArray.includes(lastIndex))
+                valuesArray.push(lastIndex);
+            }    
+        }
+
+        return valuesArray;
+    }
+
+    keys() {
+        const valuesArray = [];
+
+        for (const iterator of this.keyMap) {
+            if(iterator.length === 0 || !iterator) continue;
+
+            for(const item of iterator){
+                const [firstIndex] = item;
+                if(!valuesArray.includes(firstIndex))
+                valuesArray.push(firstIndex);
+            }    
+        }
+
+        return valuesArray; 
+    }
 }
 
 const result = new HashTable();
 
 result.set('name', 'anurag');
+result.set('fullName', 'anurag');
 
 result.set('lastName', 'arwalkar');
 
-const object = result.get('lastName');
-
-console.log('object:', object)
+console.log('keys:', result.values());
+console.log('values:', result.keys());
 
