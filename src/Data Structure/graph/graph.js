@@ -47,24 +47,88 @@ class Graph {
 
         delete this.adjacencyList[vartex];
     }
+
+    DFS(startingNode) {
+        const results = [];
+        const visitedVertices = { };
+        
+        const innerDFS = (vartex) => {
+            if(!vartex) return;
+            visitedVertices[vartex] = true;
+            results.push(vartex);
+
+            for(let item of this.adjacencyList[vartex]) {
+                if(!visitedVertices[item]){
+                    innerDFS(item);
+                }
+            }
+
+        }
+
+        innerDFS(startingNode);
+
+        return results;
+    }
+
+    DFSIterative(start) {
+        let s = [];
+        const results = [];
+        const visited = {};
+        s.push(start);
+        
+        while(s.length > 0){
+            const vertex = s.pop();
+            
+            if(visited[vertex]) continue;
+
+            results.push(vertex);
+            visited[vertex] = true;
+
+            for (const iterator of this.adjacencyList[vertex]) {
+                s.push(iterator);
+            }
+
+        }
+
+
+        return results;
+    }
+
+    BFS(startVartex) {
+        const result = [];
+        const queue = [startVartex];
+        const visited = {};
+
+        visited[startVartex] = true;
+
+        while(queue.length > 0) {
+            const firstVartex = queue.shift();
+            result.push(firstVartex);
+
+            for (const item of this.adjacencyList[firstVartex]) {
+                if(!visited[item]){
+                    visited[item] = true;
+                    queue.push(item);
+                }
+            }
+            
+        }
+
+        return result;
+    }
 }
 
 const graph = new Graph();
 
-graph.addEdge('Tokyo', 'Dallas');
+graph.addEdge('A', 'B');
+graph.addEdge('A', 'C');
+graph.addEdge('B', 'D');
+graph.addEdge('C', 'E');
+graph.addEdge('D', 'E');
+graph.addEdge('D', 'F');
+graph.addEdge('E', 'F');
 
-graph.addEdge('Dallas', 'Aspen');
+// const dfs = graph.DFS('A');
+const bfs = graph.BFS('A');
 
-graph.addEdge('Maharahtra', 'Aspen');
-
-graph.addEdge('Bihar','Aspen');
-
-graph.addEdge('Uttar','Aspen');
-
-graph.addEdge('South','Aspen');
-
-// graph.removeEdge('Tokyo', 'Dallas');
-
-graph.removeVertex('Aspen');
-
-console.log('graph:', graph);
+console.log('graph:', bfs);
