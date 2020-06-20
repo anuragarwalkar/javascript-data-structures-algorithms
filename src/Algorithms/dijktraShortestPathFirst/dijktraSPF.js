@@ -1,19 +1,83 @@
+class Node {
+    constructor(value, priority){
+        this.value = value;
+        this.priority = priority;
+    }
+}
+
 class PriorityQueue {
     constructor() {
         this.values = [];
     }
 
-    enquiqe(val, priority) {
-        this.values.push({ val, priority });
-        this.sort();
+    enqueue(value, priority) {
+        const newNode = new Node(value, priority)
+        this.values.push(newNode);
+        this.bubbleUp();
+    }
+
+    bubbleUp() {
+        let index = this.values.length - 1;
+        const { priority:element } = this.values[index];
+
+        while(index > 0) {
+            const parentIndex = Math.floor((index - 1) / 2);
+            const { priority:parent } = this.values[parentIndex];
+            if(element >= parent) break;
+            [this.values[index], this.values[parentIndex]] = 
+            [this.values[parentIndex], this.values[index]] 
+            index = parentIndex;
+        }
     }
 
     dequeue() {
-        return this.values.shift();
+        const [max] = this.values;
+        const end = this.values.pop();
+        if(this.values.length > 0){
+            this.values[0] = end;
+            this.sinkDown();
+        }
+        return max;
     }
 
-    sort(){
-        this.values.sort((a, b) => a.priority - b.priority);
+    sinkDown() {
+        let index = 0;
+        const length = this.values.length;
+        const [{ priority:element }] = this.values;
+        const [firstValue] = this.values;
+
+        while(true) {
+            const leftChildIndex = (2 * index) + 1;
+            const rightChildIndex = (2 * index) + 2;
+            let leftChild = null;
+            let rightChild = null;
+            let swap = null;
+
+            if(leftChildIndex < length){
+                const { priority } = this.values[leftChildIndex];
+                leftChild = priority;
+                if(leftChild < element) {
+                    swap = leftChildIndex;
+                }
+            }
+
+            if(rightChildIndex < length){
+                const { priority } = this.values[rightChildIndex];
+                rightChild = priority;
+                if(
+                    (swap === null && rightChild < element) ||
+                    (swap !== null && rightChild < leftChild)
+                ) {
+                    swap = rightChildIndex;
+                }
+            }
+            if(swap === null) break;
+
+            this.values[index] = this.values[swap];
+            this.values[swap] = firstValue;
+
+            index = swap;
+        }
     }
 }
 
@@ -43,14 +107,14 @@ class WeigthedGraph {
             distances[key] =  vartexResult;
             previous[key] = null;
             if(vartexResult != 0){
-                prorityQueue.enquiqe(key, Infinity);
+                prorityQueue.enqueue(key, Infinity);
             }else{
-                prorityQueue.enquiqe(key, 0);
+                prorityQueue.enqueue(key, 0);
             }
         }
 
         while(prorityQueue.values.length > 0){
-            let { val:vartex } = prorityQueue.dequeue();
+            let { value:vartex } = prorityQueue.dequeue();
 
             if(vartex === endingVartex){
                 while(previous[vartex]){
@@ -67,7 +131,7 @@ class WeigthedGraph {
                     if(totalDisatance < distances[node]){
                         distances[node] = totalDisatance;
                         previous[node] = vartex;
-                        prorityQueue.enquiqe(node, totalDisatance);
+                        prorityQueue.enqueue(node, totalDisatance);
                     }
                 }
             }
