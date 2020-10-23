@@ -45,3 +45,65 @@ console.log(2 + '2');
 
 console.log(2 - '2');
 
+function getRandomString() {
+    var char = 'ABCDEFG';
+    var numbers = '1234';
+    var special = '@#$%!';
+
+    var text = "";
+
+    var vars = [char, numbers, special];
+    for(var i = 0; i < 5; i++) {
+        const result = vars[Math.floor(Math.random() * vars.length)]
+        text += result[Math.floor(Math.random() * result.length)]
+        // [Math.floor(Math.random() * char.length)];
+    }
+
+    return text;
+}
+
+const result = getRandomString();
+
+console.log('result:', result)
+
+
+
+
+
+function Memo() {
+    this.obj = {};  
+}
+
+Memo.prototype.isPrime = isPrime;
+
+function isPrime (number) {
+
+    if(this.obj[number] !== undefined) {
+        console.log('this.obj[number]:', this.obj[number])
+        return this.obj[number];
+    }
+
+    let isPrime = true;
+
+    if (number < 2) {
+        return false;
+    }
+
+    for(let i = 2; i < number; i++) {
+        if(number % i === 0) {
+            isPrime = false
+        }
+    }
+    this.obj[number] = isPrime;
+    return isPrime
+}
+
+
+const memo = new Memo();
+const result = memo.isPrime(100);
+const another = memo.isPrime(100);
+
+console.log('result:', result)
+
+
+
