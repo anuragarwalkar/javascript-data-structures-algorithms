@@ -66,10 +66,6 @@ const result = getRandomString();
 
 console.log('result:', result)
 
-
-
-
-
 function Memo() {
     this.obj = {};  
 }
@@ -103,7 +99,23 @@ const memo = new Memo();
 const result = memo.isPrime(100);
 const another = memo.isPrime(100);
 
-console.log('result:', result)
+console.log('result:', result);
+
+// print x after every second
+
+function x() {
+    for(var i = 0; i <= 5; i++) {
+        function close(val) {
+            setTimeout(() => {
+                console.log(val)
+            }, i * 1000);
+        }
+   
+       close(i);
+    }
+   }
+   
+   x();
 
 
 
