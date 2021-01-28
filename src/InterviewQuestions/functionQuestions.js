@@ -23,7 +23,7 @@ const callMe = (parameter1, parameter2) => {
 
 callMe("Argument1", "Argument2");
 
-// First class functions (Ability to use functions as values)
+// First class functions || First class citizens (Ability to use functions as values)
 const callback = () => {
   console.log("call me when you are ready");
 };
