@@ -39,3 +39,16 @@ const anotherFirstClassFunction = () => {
 firstClassFunctions(callback);
 
 anotherFirstClassFunction();
+
+// Closure example
+const button = document.getElementById("myButton");
+
+const clickListner = () => {
+  let counter = 0;
+
+  return () => {
+    console.log(`Clicked ${++counter}`);
+  };
+};
+
+button.addEventListener("click", clickListner());
