@@ -106,6 +106,21 @@ class SinglyLinedList {
       node = node.nextNode;
     }
   }
+
+  reverse() {
+    let next = null;
+    let prev = null;
+    let current = this.head;
+
+    while (current) {
+      next = current.nextNode;
+      current.nextNode = prev;
+      prev = current;
+      current = next;
+    }
+
+    this.head = prev;
+  }
 }
 
 const sl = new SinglyLinedList();
@@ -132,6 +147,6 @@ sl.deleteNode("developingNew");
 
 sl.insert("python");
 
-sl.printAllNode();
+sl.reverse();
 
-console.log(sl.length);
+sl.printAllNode();
