@@ -55,12 +55,15 @@ class SinglyLinedList {
     }
   }
 
-  getNode(value, prev = false) {
+  getNode(value = null, prev = false, last = false) {
     let node = this.head;
 
     while (node) {
       if (prev && node.nextNode) {
-        if (node.nextNode.value === value) {
+        if (
+          node.nextNode.value === value ||
+          (last && node.nextNode.nextNode === null)
+        ) {
           break;
         }
       }
@@ -121,6 +124,24 @@ class SinglyLinedList {
 
     this.head = prev;
   }
+
+  pop() {
+    if (!this.head) {
+      return;
+    }
+
+    const secondLastNode = this.getNode(null, true, true);
+
+    if (secondLastNode) {
+      secondLastNode.nextNode = null;
+      this.tail = secondLastNode;
+    } else {
+      this.head = secondLastNode;
+      this.tail = secondLastNode;
+    }
+
+    return secondLastNode;
+  }
 }
 
 const sl = new SinglyLinedList();
@@ -148,5 +169,7 @@ sl.deleteNode("developingNew");
 sl.insert("python");
 
 sl.reverse();
+
+sl.pop();
 
 sl.printAllNode();
