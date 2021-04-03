@@ -1,2 +1,7 @@
 FROM node:alpine
-COPY ./index.js
+# Copying app required files from current folder
+COPY . /app
+# Setting work directory to /app
+WORKDIR /app
+# Running the command
+CMD node index.js
