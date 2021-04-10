@@ -1,12 +1,12 @@
 const charCount = (string) => {
   if (typeof string == "string") {
     return string.split("").reduce((a, b) => {
-      const value = b.toLowerCase();
-      if (/[a-z0-9]/.test(value.trim())) {
-        if (a[value]) {
-          a[value] = a[value] + 1;
+      const char = b.toLowerCase();
+      if (/[a-z0-9]/.test(char.trim())) {
+        if (a[char]) {
+          a[char] = a[char] + 1;
         } else {
-          a[value] = 1;
+          a[char] = 1;
         }
       }
 
