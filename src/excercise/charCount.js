@@ -3,11 +3,7 @@ const charCount = (string) => {
     return string.split("").reduce((a, b) => {
       const char = b.toLowerCase();
       if (/[a-z0-9]/.test(char.trim())) {
-        if (a[char]) {
-          a[char] = a[char] + 1;
-        } else {
-          a[char] = 1;
-        }
+        a[char] = ++a[char] || 1;
       }
 
       return a;
