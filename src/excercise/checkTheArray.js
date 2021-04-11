@@ -5,7 +5,7 @@ const same = (input, output) => {
 
   const createFrequency = (array) =>
     array.reduce((a, b) => {
-      a[b] ? ++a[b] : (a[b] = 1);
+      a[b] = (a[b] || 0) + 1;
       return a;
     }, {});
 
@@ -27,6 +27,6 @@ const same = (input, output) => {
   return isSame;
 };
 
-const result = same([1, 2, 3], [4, 1, 9]);
+const result = same([1, 2, 3, 2, 5], [9, 1, 4, 4, 25]);
 
 console.log(result);
