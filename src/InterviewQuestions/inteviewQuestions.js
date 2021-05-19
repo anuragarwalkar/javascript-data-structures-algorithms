@@ -109,6 +109,7 @@ function isPrime(number) {
   return isPrime;
 }
 
+// **************************************************
 const sum = (argA) => {
   console.log(argA);
   return (argB) => {
@@ -116,7 +117,15 @@ const sum = (argA) => {
   };
 };
 
-// console.log(sum(1)(2)(3)....());
+// console.log(sum(1)(2)(3)....()) *******************;
+
+function a() {
+  return "hello";
+}
+
+const sentence = a`hi`;
+
+console.log(sentence);
 
 const memo = new Memo();
 const result = memo.isPrime(100);
