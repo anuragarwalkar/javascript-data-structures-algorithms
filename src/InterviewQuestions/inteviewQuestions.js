@@ -15,8 +15,16 @@ const twoDimentionalArray = [
 
 // console.log(twoDimentionalArray.reduce((a, b) => a.concat(b), []))
 
-// Console log
-console.log(Promise.resolve("1"));
+//  **************************************************
+Promise.resolve().then((res) => {
+  setTimeout(() => {
+    console.log("4");
+  }, 0);
+});
+
+Promise.resolve().then((res) => {
+  console.log("1");
+});
 
 setTimeout(() => {
   console.log("2");
@@ -24,7 +32,9 @@ setTimeout(() => {
 
 console.log("3");
 
-// tell me value of this.length
+//output 3 1 2 4 **********************************
+
+// tell me value of this.length ***************************
 function y() {
   console.log("Length", this.length);
 }
@@ -36,7 +46,9 @@ const x = {
   },
 };
 
-x.getItems(y, 2);
+x.getItems(y, 1, 2);
+
+// output 3 ***********************************
 
 // Tell me the output
 console.log(5 < 6 < 7);
@@ -48,6 +60,7 @@ console.log(2 + "2");
 
 console.log(2 - "2");
 
+// *****************************************************
 function getRandomString() {
   var char = "ABCDEFG";
   var numbers = "1234";
@@ -68,6 +81,7 @@ function getRandomString() {
 const result = getRandomString();
 
 console.log("result:", result);
+// ***********************************************
 
 function Memo() {
   this.obj = {};
@@ -77,7 +91,6 @@ Memo.prototype.isPrime = isPrime;
 
 function isPrime(number) {
   if (this.obj[number] !== undefined) {
-    console.log("this.obj[number]:", this.obj[number]);
     return this.obj[number];
   }
 

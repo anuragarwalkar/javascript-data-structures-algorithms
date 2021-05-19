@@ -9,7 +9,7 @@ setInterval(() => {
   if (a) {
     console.log(a);
   }
-}, 200);
+}, 0);
 
 // IF i do this what will happen
 while (a) {
