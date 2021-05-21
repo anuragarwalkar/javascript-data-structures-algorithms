@@ -1,6 +1,22 @@
 // filter items
 const items = ["asas", null, "", undefined];
 
+// Reference vs copy memory******************8
+let a = "anurag";
+let b = a;
+a = "swapnil";
+console.log(b);
+
+const a = [1];
+
+const b = a;
+
+a[0] = 2;
+
+console.log(b);
+
+// ***********************************
+
 // return most frequest item
 const mostFrequentItem = [1, "a", 2, 2, 3, 4, "a", 5, "a", "u", "a", "a"];
 
@@ -50,10 +66,12 @@ x.getItems(y, 1, 2);
 
 // output 3 ***********************************
 
-// Tell me the output
+// Tell me the output and why
 console.log(5 < 6 < 7);
 
 console.log(7 > 6 > 5);
+
+// *******************************************
 
 // Tell me the output
 console.log(2 + "2");
@@ -72,7 +90,6 @@ function getRandomString() {
   for (var i = 0; i < 5; i++) {
     const result = vars[Math.floor(Math.random() * vars.length)];
     text += result[Math.floor(Math.random() * result.length)];
-    // [Math.floor(Math.random() * char.length)];
   }
 
   return text;
