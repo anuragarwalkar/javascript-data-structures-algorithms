@@ -17,6 +17,14 @@ console.log(b);
 
 // ***********************************
 
+// tell the console log
+for (var j = 0; j < 5; j++) {
+  setTimeout(function () {
+    console.log(j);
+  }, 0);
+}
+// ****************************************
+
 // return most frequest item
 const mostFrequentItem = [1, "a", 2, 2, 3, 4, "a", 5, "a", "u", "a", "a"];
 
