@@ -30,3 +30,17 @@ setInterval(() => {
     console.log("Hello...");
   }
 }, 200);
+
+let a = true;
+
+setTimeout(() => {
+  a = false;
+}, 2000);
+
+let interval = setInterval(() => {
+  if (a) {
+    console.log("Hello");
+  } else {
+    clearInterval(interval);
+  }
+}, 200);
