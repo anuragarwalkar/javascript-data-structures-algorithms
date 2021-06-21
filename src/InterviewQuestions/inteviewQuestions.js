@@ -1,5 +1,5 @@
 // filter items
-const items = ["asas", null, "", undefined];
+const items = ["google", null, "", false, undefined];
 
 // Reference vs copy memory******************8
 let a = "anurag";
