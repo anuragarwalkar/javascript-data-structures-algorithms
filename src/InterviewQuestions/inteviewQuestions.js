@@ -1,10 +1,11 @@
 // filter items
 const items = ["google", null, "", false, undefined];
 
-// Reference vs copy memory******************8
+// Memory******************
 let a = "anurag";
 let b = a;
 a = "swapnil";
+
 console.log(b);
 
 const a = [1];
