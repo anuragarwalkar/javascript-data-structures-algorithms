@@ -40,12 +40,27 @@ const findMinAndMax = (array) => {
   }
 
   while (i < n - 1) {
-    if (array[i] < array[i + 1]) {
-      max = Math.max(max, array[i + 1]);
-      min = Math.min(min, array[i]);
+    if (array[i] > array[i + 1]) {
+      if (max < array[i]) {
+        max = array[i];
+      }
+
+      if (min > array[i + 1]) {
+        min = array[i + 1];
+      }
+
+      // max = Math.max(max, array[i]);
+      // min = Math.min(min, array[i + 1]);
     } else {
-      max = Math.max(max, array[i]);
-      min = Math.min(min, array[i + 1]);
+      if (max < array[i + 1]) {
+        max = array[i + 1];
+      }
+
+      if (min > array[i]) {
+        min = array[i];
+      }
+      // max = Math.max(max, array[i + 1]);
+      // min = Math.min(min, array[i]);
     }
 
     i += 2;
