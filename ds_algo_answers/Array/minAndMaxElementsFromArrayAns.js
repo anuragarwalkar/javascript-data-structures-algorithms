@@ -1,3 +1,4 @@
+// Method Linear
 // const findMinAndMax = (array) => {
 //   let min = array[0];
 //   let max = min;
@@ -12,18 +13,19 @@
 //   return [min, max];
 // };
 
+// Method Linear
 // const findMinAndMax = (array) => {
 //   const res = array.sort((a, b) => a - b);
 //   return [res[0], res[res.length - 1]];
 // };
 
+// Method Linear
 // const findMinAndMax = (array) => {
 //   return Math.max.apply(null, array);
 //   // return Math.min(...array);
 // };
 
 // METHOD (Compare in Pairs)
-
 const findMinAndMax = (array) => {
   const n = array.length;
   let min;
@@ -70,3 +72,4 @@ const findMinAndMax = (array) => {
 };
 
 console.log(findMinAndMax([10, 50, 12, 16, 2]));
+// console.log(findMinAndMax([10, 50, 12, 16, 2, -2]));
