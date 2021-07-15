@@ -26,50 +26,53 @@
 // };
 
 // METHOD (Compare in Pairs)
-const findMinAndMax = (array) => {
-  const n = array.length;
-  let min;
-  let max;
-  let i = 0;
-  if (n % 2 === 0) {
-    min = Math.min(array[0], array[1]);
-    max = Math.max(array[0], array[1]);
-    i = 2;
-  } else {
-    min = array[0];
-    max = min;
-    i = 1;
-  }
+// const findMinAndMax = (array) => {
+//   const n = array.length;
+//   let min;
+//   let max;
+//   let i = 0;
+//   if (n % 2 === 0) {
+//     min = Math.min(array[0], array[1]);
+//     max = Math.max(array[0], array[1]);
+//     i = 2;
+//   } else {
+//     min = array[0];
+//     max = min;
+//     i = 1;
+//   }
 
-  while (i < n - 1) {
-    if (array[i] > array[i + 1]) {
-      if (max < array[i]) {
-        max = array[i];
-      }
+//   while (i < n - 1) {
+//     if (array[i] > array[i + 1]) {
+//       if (max < array[i]) {
+//         max = array[i];
+//       }
 
-      if (min > array[i + 1]) {
-        min = array[i + 1];
-      }
+//       if (min > array[i + 1]) {
+//         min = array[i + 1];
+//       }
 
-      // max = Math.max(max, array[i]);
-      // min = Math.min(min, array[i + 1]);
-    } else {
-      if (max < array[i + 1]) {
-        max = array[i + 1];
-      }
+//       // max = Math.max(max, array[i]);
+//       // min = Math.min(min, array[i + 1]);
+//     } else {
+//       if (max < array[i + 1]) {
+//         max = array[i + 1];
+//       }
 
-      if (min > array[i]) {
-        min = array[i];
-      }
-      // max = Math.max(max, array[i + 1]);
-      // min = Math.min(min, array[i]);
-    }
+//       if (min > array[i]) {
+//         min = array[i];
+//       }
+//       // max = Math.max(max, array[i + 1]);
+//       // min = Math.min(min, array[i]);
+//     }
 
-    i += 2;
-  }
+//     i += 2;
+//   }
 
-  return [min, max];
-};
+//   return [min, max];
+// };
+
+// Tournament Menthod
+const findMinAndMax = () => {};
 
 console.log(findMinAndMax([10, 50, 12, 16, 2]));
 // console.log(findMinAndMax([10, 50, 12, 16, 2, -2]));
