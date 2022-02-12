@@ -14,8 +14,9 @@ function twoSum(array, target) {
 function twoSum(nums, target) {
   const map = {};
   for (let i = 0; i < nums.length; i++) {
-    if (map[nums[i]] != undefined) {
-      return [map[nums[i]], i];
+    const value = map[nums[i]];
+    if (value != undefined) {
+      return [value, i];
     } else {
       let ntf = target - nums[i];
       map[ntf] = i;
