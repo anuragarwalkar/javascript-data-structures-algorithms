@@ -1,3 +1,4 @@
+// Complexity T: O(NxN) S: O(1)
 function twoSum(array, target) {
   for (let i = 0; i < array.length; i++) {
     let numberToFind = array[i] - target;
@@ -9,6 +10,7 @@ function twoSum(array, target) {
   }
 }
 
+// Complexity T: O(N) S: O(N)
 function twoSum(nums, target) {
   const map = {};
   for (let i = 0; i < nums.length; i++) {
