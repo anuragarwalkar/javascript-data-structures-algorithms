@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/two-sum/
 // Complexity T: O(NxN) S: O(1)
 function twoSum(array, target) {
   for (let i = 0; i < array.length; i++) {
