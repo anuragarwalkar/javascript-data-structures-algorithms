@@ -1,5 +1,5 @@
-function solve(n) {}
+function solve(input) {}
 
-const result = solve(10);
+const result = solve();
 
 console.log("result:", result);
