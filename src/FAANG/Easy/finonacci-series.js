@@ -49,5 +49,3 @@ function solve(n) {
 }
 
 const result = solve(5);
-
-console.log("result:", result);
