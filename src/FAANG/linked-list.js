@@ -49,7 +49,3 @@ ls.add(2);
 ls.add(3);
 ls.add(4);
 ls.add(5);
-ls.reverse();
-
-//      p c    n
-//  null  1 => 2 => 3 => 4 => 5
