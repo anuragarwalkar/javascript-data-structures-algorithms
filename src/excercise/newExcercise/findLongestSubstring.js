@@ -13,6 +13,7 @@ const findLongestSubstring = (givenString) => {
     longest = Math.max(longest, i - start + 1);
 
     seen[char] = i + 1;
+    console.log('seen:', seen);
   }
 
   return longest;
