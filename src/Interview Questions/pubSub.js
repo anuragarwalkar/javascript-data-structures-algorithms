@@ -59,6 +59,9 @@ customEvent.subscribe('cricket', 'janu', (message) => { console.log(message) })
 customEvent.publish('cricket', 'world');
 customEvent.pause('cricket', 'janu', 1000);
 customEvent.publish('cricket', 'sometimeLater');
+customEvent.publish('cricket', 'later2');
+customEvent.publish('cricket', 'later3');
+customEvent.publish('cricket', 'later4');
 
 setTimeout(() => {
     customEvent.publish('cricket', 'hello2');
