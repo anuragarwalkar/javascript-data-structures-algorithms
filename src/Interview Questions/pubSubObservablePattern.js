@@ -67,5 +67,5 @@ const user3 = cricket.subscribe((message) => { console.log(message) });
 
 user1.pause()
 
-cricket.publish('hello world')
-cricket.publish('hello world')
+cricket.publish('Hi')
+cricket.publish('Hello world')
