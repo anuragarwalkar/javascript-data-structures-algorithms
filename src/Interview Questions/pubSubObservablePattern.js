@@ -57,8 +57,6 @@ class Observable {
     }
 }
 
-const customEvent = new Observable()
-
 const cricket = new Observable('cricket');
 const football = new Observable('Football');
 
