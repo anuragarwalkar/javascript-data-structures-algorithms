@@ -50,18 +50,17 @@ class Observable {
     }
 }
 
-const instance = new Observable()
+const customEvent = new Observable()
 
+customEvent.subscribe('cricket', 'anu', (message) => { console.log(message) })
+customEvent.subscribe('cricket', 'shree', (message) => { console.log(message) })
+customEvent.subscribe('cricket', 'janu', (message) => { console.log(message) })
 
-instance.subscribe('cricket', 'anu', (message) => { console.log(message) })
-instance.subscribe('cricket', 'shree', (message) => { console.log(message) })
-instance.subscribe('cricket', 'janu', (message) => { console.log(message) })
-
-instance.publish('cricket', 'world');
-instance.pause('cricket', 'janu', 1000);
-instance.publish('cricket', 'sometimeLater');
+customEvent.publish('cricket', 'world');
+customEvent.pause('cricket', 'janu', 1000);
+customEvent.publish('cricket', 'sometimeLater');
 
 setTimeout(() => {
-    instance.publish('cricket', 'hello2');
-    instance.publish('cricket', 'some');
+    customEvent.publish('cricket', 'hello2');
+    customEvent.publish('cricket', 'some');
 }, 5000);
