@@ -35,7 +35,7 @@ class Observable {
                     }
                 });
             },
-            ubsubscribe: () => {
+            unsubscribe: () => {
                 this.list = this.list.filter(i => i.id !== id);
             }
         };
