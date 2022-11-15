@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/anuragarwalkar/javascriptDataStructureAndAlorithms#readme",
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.20"
   }
 }
