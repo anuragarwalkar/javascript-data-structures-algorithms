@@ -57,18 +57,71 @@ class BST {
 
     remove(value) {
         let currentNode = this.root;
-        while (currentNode) {
-            if (currentNode.left && currentNode.left.value === value) {
-                currentNode.left = currentNode.left.left
-                return this.root;
-            }
+        let parentNode = null;
 
+        while (currentNode) {
             if (value < currentNode.value) {
+                parentNode = currentNode;
                 currentNode = currentNode.left;
             }
-
             if (value > currentNode.value) {
+                parentNode = currentNode;
                 currentNode = currentNode.right;
+            }
+
+            if (currentNode.value === value) {
+
+                // Option 1
+                if (currentNode.right === null) {
+                    if (parentNode.value < currentNode.value) {
+                        parentNode.right = currentNode.left;
+                    }
+
+                    if (parentNode.value > currentNode.value) {
+                        parentNode.left = currentNode.left;
+                    }
+                    return true;
+                }
+
+                // Option 2
+                if (currentNode.right.left === null) {
+                    currentNode.right.left = currentNode.left;
+
+                    if (currentNode.value > parentNode.value) {
+                        parentNode.right = currentNode.right;
+                    }
+
+                    if (currentNode.value < parentNode.value) {
+                        parentNode.left = currentNode.right;
+                    }
+
+                    return true;
+                }
+
+                // Option 3
+                let leftMost = currentNode.right.left;
+                let leftMostParent = currentNode.right;
+
+                while (leftMost.left) {
+                    leftMostParent = leftMost;
+                    leftMost = leftMost.left;
+                }
+
+                leftMostParent.left = leftMost.right
+                leftMost.left = currentNode.left;
+                leftMost.right = currentNode.right;
+
+                if (currentNode.value < parentNode.value) {
+                    parentNode.left = leftMost;
+                }
+
+                if (currentNode.value > parentNode.value) {
+                    parentNode.right = leftMost;
+                }
+
+                return true;
+
+
             }
         }
     }
@@ -78,8 +131,17 @@ const bst = new BST();
 
 bst.insert(20);
 bst.insert(10);
-bst.insert(25);
 bst.insert(8);
-bst.remove(10);
+bst.insert(7);
+bst.insert(9);
+bst.insert(11);
+bst.insert(12);
+bst.insert(25);
+bst.insert(24);
+bst.insert(30);
+bst.insert(23);
 
-console.log('bst.root:', bst);
+
+bst.remove(24);
+
+console.log('bst.root:', bst.root.right.left);
