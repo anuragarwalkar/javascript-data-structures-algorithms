@@ -129,19 +129,17 @@ class BST {
 
 const bst = new BST();
 
-bst.insert(20);
-bst.insert(10);
-bst.insert(8);
-bst.insert(7);
-bst.insert(9);
-bst.insert(11);
-bst.insert(12);
-bst.insert(25);
-bst.insert(24);
-bst.insert(30);
-bst.insert(23);
+
+bst.insert(50)
+bst.insert(30)
+bst.insert(20)
+bst.insert(32)
+bst.insert(15)
+bst.insert(25)
+bst.insert(31)
+bst.insert(35)
+
+bst.remove(30)
 
 
-bst.remove(24);
-
-console.log('bst.root:', bst.root.right.left);
+console.log('bst.root:', bst.root);
