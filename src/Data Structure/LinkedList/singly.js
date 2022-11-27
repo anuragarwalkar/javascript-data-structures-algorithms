@@ -67,17 +67,15 @@ class LinkedList {
     reverse() {
         let node = this.head;
         let prev = null;
-        let next = null;
 
         while (node) {
             next = node.next;
-            if (!prev) {
-                this.tail = node;
-            }
             node.next = prev;
+            prev = node;
             node = next;
         }
 
+        this.head = prev;
     }
 
 }
@@ -85,9 +83,9 @@ class LinkedList {
 
 const list = new LinkedList()
 
-list.add('ashwini');
-list.prepend('anurag');
+list.add('zensar');
+list.add('anurag');
 
 list.reverse();
 
-console.log('list:', list);
+console.log('list:', list.head);
