@@ -11,7 +11,6 @@ const getSumBy = (i) => {
 };
 
 for (let i = 6025; i <= 9999; i++) {
-    // if (getSumBy(i) === 9) {
     const first = getSumBy(i);
     if (first !== -1) {
         const second = getSumBy(first);
